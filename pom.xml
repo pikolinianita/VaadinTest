@@ -17,6 +17,11 @@
 	<properties>
 		<java.version>11</java.version>
 		<vaadin.version>14.1.17</vaadin.version>
+		 <sonar.projectKey>pikolinianita_VaadinTest</sonar.projectKey>
+  		<sonar.organization>pikolinianita</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  <sonar.login>4943abc53c5db1272bc770c113461486bf2cd0a4</sonar.login>
+		
 	</properties>
 
         <dependencies>
@@ -153,7 +158,42 @@
                                 <!---downloadRoot>http://myproxy.example.org/nodejs/</downloadRoot-->
                             </configuration>
                         </plugin>
+			
+			 <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>0.8.5</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>report</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+			
 		</plugins>
 	</build>
 
+	<reporting>
+        <plugins>
+            <plugin>
+                <configuration>
+                    <effort>Max</effort>
+                    <threshold>Default</threshold>
+                </configuration>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>3.1.12.2</version>
+            </plugin>
+        </plugins>
+    </reporting>
+	
 </project>
