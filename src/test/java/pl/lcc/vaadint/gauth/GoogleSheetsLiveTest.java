@@ -28,7 +28,7 @@ import com.google.api.services.sheets.v4.model.ValueRange;
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Disabled;
 
-@Disabled
+
 public class GoogleSheetsLiveTest {
 
     private static Sheets sheetsService;
