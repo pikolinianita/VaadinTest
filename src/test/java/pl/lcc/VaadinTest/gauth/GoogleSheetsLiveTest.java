@@ -92,6 +92,7 @@ public class GoogleSheetsLiveTest {
         Spreadsheet spreadSheet = new Spreadsheet().setProperties(new SpreadsheetProperties().setTitle("My Spreadsheet"));
         Spreadsheet result = sheetsService.spreadsheets().create(spreadSheet).execute();
 
+        
         assertThat(result.getSpreadsheetId()).isNotNull();
     }
 
