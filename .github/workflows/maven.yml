@@ -13,5 +13,26 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    
+    - name: Cache Maven packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2 
+    
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      
+    - name: Send Result to Sonar
+      run: mvn verify sonar:sonar 
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      continue-on-error: true  
+
+    - name: upload report
+      uses: actions/upload-artifact@v1
+      with:
+        name: Tests Results
+        path: target/site/
+      continue-on-error: true 
