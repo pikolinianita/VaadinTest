@@ -18,6 +18,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GoogleAuthorizeUtil {
+    
+    private GoogleAuthorizeUtil(){
+        //blocker
+    }
+    
     public static Credential authorize() throws IOException, GeneralSecurityException {
         InputStream in = GoogleAuthorizeUtil.class.getResourceAsStream("/lccsecret.json");
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JacksonFactory.getDefaultInstance(), new InputStreamReader(in));

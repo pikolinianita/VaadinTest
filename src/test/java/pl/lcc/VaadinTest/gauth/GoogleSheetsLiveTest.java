@@ -42,6 +42,12 @@ public class GoogleSheetsLiveTest {
     }
 
     @Test
+    public void testSSCreation() throws IOException, GeneralSecurityException{
+        var ss = SheetsServiceUtil.getSheetsService();
+        assertThat(ss).isNotNull();
+    }
+    
+    @Test
     public void whenWriteSheet_thenReadSheetOk() throws IOException {
         ValueRange body = new ValueRange().setValues(Arrays.asList(Arrays.asList("Expenses January"), Arrays.asList("books", "30"), Arrays.asList("pens", "10"), Arrays.asList("Expenses February"), Arrays.asList("clothes", "20"), Arrays.asList("shoes", "5")));
         UpdateValuesResponse result = sheetsService.spreadsheets().values().update(SPREADSHEET_ID, "A1", body).setValueInputOption("RAW").execute();
@@ -90,9 +96,7 @@ public class GoogleSheetsLiveTest {
     @Test
     public void whenCreateSpreadSheet_thenIdOk() throws IOException {
         Spreadsheet spreadSheet = new Spreadsheet().setProperties(new SpreadsheetProperties().setTitle("My Spreadsheet"));
-        Spreadsheet result = sheetsService.spreadsheets().create(spreadSheet).execute();
-
-        
+        Spreadsheet result = sheetsService.spreadsheets().create(spreadSheet).execute();        
         assertThat(result.getSpreadsheetId()).isNotNull();
     }
 
