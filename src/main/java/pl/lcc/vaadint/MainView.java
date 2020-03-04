@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pl.lcc.VaadinTest;
+package pl.lcc.vaadint;
 
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.html.Div;

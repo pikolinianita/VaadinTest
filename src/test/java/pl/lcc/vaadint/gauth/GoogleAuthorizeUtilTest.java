@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pl.lcc.VaadinTest.gauth;
+package pl.lcc.vaadint.gauth;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -42,6 +42,7 @@ public class GoogleAuthorizeUtilTest {
      */
     @Test
     public void testAuthorize() throws Exception {
+        
     }
     
 }

@@ -1,4 +1,4 @@
-package pl.lcc.VaadinTest;
+package pl.lcc.vaadint;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

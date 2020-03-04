@@ -1,4 +1,4 @@
-package  pl.lcc.VaadinTest.gauth;
+package  pl.lcc.vaadint.gauth;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;

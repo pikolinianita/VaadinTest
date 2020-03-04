@@ -1,5 +1,6 @@
-package  pl.lcc.VaadinTest.gauth;
+package  pl.lcc.vaadint.gauth;
 
+import pl.lcc.vaadint.gauth.SheetsServiceUtil;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class GoogleSheetsLiveTest {
     }
     
     @Test
-    public void whenWriteSheet_thenReadSheetOk() throws IOException {
+    public void testWhenWriteSheetthenReadSheetOk() throws IOException {
         ValueRange body = new ValueRange().setValues(Arrays.asList(Arrays.asList("Expenses January"), Arrays.asList("books", "30"), Arrays.asList("pens", "10"), Arrays.asList("Expenses February"), Arrays.asList("clothes", "20"), Arrays.asList("shoes", "5")));
         UpdateValuesResponse result = sheetsService.spreadsheets().values().update(SPREADSHEET_ID, "A1", body).setValueInputOption("RAW").execute();
 
@@ -76,7 +77,7 @@ public class GoogleSheetsLiveTest {
     }
 
     @Test
-    public void whenUpdateSpreadSheetTitle_thenOk() throws IOException {
+    public void testWhenUpdateSpreadSheetTitleThenOk() throws IOException {
 
         UpdateSpreadsheetPropertiesRequest updateRequest = new UpdateSpreadsheetPropertiesRequest().setFields("*").setProperties(new SpreadsheetProperties().setTitle("Expenses"));
 
@@ -94,7 +95,7 @@ public class GoogleSheetsLiveTest {
     }
 
     @Test
-    public void whenCreateSpreadSheet_thenIdOk() throws IOException {
+    public void testWhenCreateSpreadSheetThenIdOk() throws IOException {
         Spreadsheet spreadSheet = new Spreadsheet().setProperties(new SpreadsheetProperties().setTitle("My Spreadsheet"));
         Spreadsheet result = sheetsService.spreadsheets().create(spreadSheet).execute();        
         assertThat(result.getSpreadsheetId()).isNotNull();
