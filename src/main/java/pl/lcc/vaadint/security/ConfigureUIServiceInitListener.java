@@ -11,7 +11,6 @@ import com.vaadin.flow.server.ServiceInitEvent;
 import com.vaadin.flow.server.VaadinServiceInitListener;
 import org.springframework.stereotype.Component;
 import pl.lcc.vaadint.views.LoginView;
-//import org.vaadin.paul.spring.ui.views.LoginView;
 
 /**
  *
