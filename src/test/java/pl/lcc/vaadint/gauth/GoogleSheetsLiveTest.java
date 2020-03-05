@@ -28,7 +28,7 @@ import com.google.api.services.sheets.v4.model.ValueRange;
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Disabled;
 
-
+@Disabled  //Google login erquired fotr testing - possible during manual testing only
 public class GoogleSheetsLiveTest {
 
     private static Sheets sheetsService;
@@ -48,6 +48,7 @@ public class GoogleSheetsLiveTest {
         assertThat(ss).isNotNull();
     }
     
+    // Class for manual testing only
     @Test
     public void testWhenWriteSheetthenReadSheetOk() throws IOException {
         ValueRange body = new ValueRange().setValues(Arrays.asList(Arrays.asList("Expenses January"), Arrays.asList("books", "30"), Arrays.asList("pens", "10"), Arrays.asList("Expenses February"), Arrays.asList("clothes", "20"), Arrays.asList("shoes", "5")));
